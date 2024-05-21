@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forgot Your Password</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        display: flex;
+        height: 100vh;
+    }
+    .container {
+        display: flex;
+        width: 100%;
+    }
+    .left-side {
+        flex: 1;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+    }
+    .right-side {
+        flex: 1;
+        background: linear-gradient(to right, #ffffff, #ff6347);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .left-side img {
+        width: 100px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    h1 {
+        color: #f30909;
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .back-link {
+        align-self: flex-start;
+        margin-bottom: 20px;
+        color: #f30909;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .form-group {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+    .submit-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: transparent;
+        color: #ff6347;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 25px;
+        border: 2px solid #ff6347;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+    .submit-button:hover {
+        background-color: #ff6347;
+        color: #fff;
+    }
+    .right-side img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="left-side">
+        <a href="#" class="back-link">&lt; Back</a>
+        <img src="Black Retro Car Repair Garage Logo.png" alt="Logo">
+        <h1>Forgot your Password?</h1>
+        <form>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your email" required>
+            </div>
+            <div class="form-group">
+                <label for="id">ID/Card Number</label>
+                <input type="text" id="id" name="id" placeholder="ID/Card Number" required>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+    <div class="right-side">
+        <img src="firefighter-99 (1) 1.png" alt="Firefighter Image">
+    </div>
+</div>
+</body>
+</html>
