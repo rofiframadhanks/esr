@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Fire Response</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 20px;
+    }
+    .text-container {
+        flex: 1;
+        margin-right: 20px;
+    }
+    h1 {
+        color: #f30909;
+        font-size: 35px;
+        margin-top: 30%;
+        margin-bottom: 40px;
+    }
+    p {
+        color: #000000;
+        line-height: 1.6;
+    }
+    .image-container {
+        flex: 1;
+        margin-top: 10%;
+        margin-left: 10%;
+        text-align: center;
+    }
+    .image-container img {
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+    }
+    .emergency-button {
+        display: inline-block;
+        margin-top: 10%;
+        padding: 10px 20px;
+        background-color: transparent;
+        color: #ff6347;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 25px;
+        border: 2px solid #ff6347;
+        transition: background-color 0.3s ease;
+    }
+    .emergency-button:hover {
+        background-color: #ff6347;
+        color: #fff;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="text-container">
+        <h1>Emergency Fire Response</h1>
+        <p>Selamat datang di ESR (Emergency Fire Response).</p>
+        <p>Temukan informasi penting seputar kebakaran, tips keselamatan, dan layanan darurat kami. Mari bersama-sama menjaga keselamatan dan mencegah bahaya kebakaran.</p>
+        <a href="login.php" class="emergency-button">Let's Started</a>
+    </div>
+    <div class="image-container">
+        <img src="Media/logo.jpg" alt="Fire Image">
+    </div>
+</div>
+</body>
+</html>
