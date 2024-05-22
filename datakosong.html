@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .logout {
+            background-color: #ff6666;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+        }
+        .container {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #ff7f00;
+            color: white;
+            font-size: 18px;
+        }
+        td {
+            font-size: 16px;
+        }
+        .report-image {
+            width: 100px;
+            height: auto;
+        }
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .header-section {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="header-section">
+            <a href="login.html"> <!-- Ganti "login.html" dengan halaman login yang sesuai -->
+                <img src="Black Retro Car Repair Garage Logo.png" alt="Logo" class="logo">
+            </a>
+            <a href="#">Laporan</a>
+            <a href="arsip.html">Arsip</a>
+        </div>
+        <button class="logout">Logout</button>
+    </div>
+
+    <div class="container">
+        <h2></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Lokasi</th>
+                    <th>Deskripsi</th>
+                    <th>No HP</th>
+                    <th>Foto</th>
+                    <th>Tanggal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data kosong -->
+                <tr>
+                    <td colspan="6" style="text-align: center;">Tidak ada data tersedia</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
