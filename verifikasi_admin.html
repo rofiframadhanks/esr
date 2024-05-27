@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Report</title>
+    <link rel="icon" href="Black Retro Car Repair Garage Logo_20240429_111254_0000.png">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/verdana');
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Reem+Kufi:wght@400..700&display=swap');
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .overlay-content {
+            background-color: #ffd4d4;
+            padding-top: 5%;
+            padding-left: 2%;
+            padding-right: 2%;
+            border-radius: 34px;
+            width: 628px;
+            height: 298px;
+            text-align: center;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .close-button,
+        .submit-button {
+            width: 188.41px;
+            height: 39.1px;
+            border: 1px transparent;
+            border-radius: 10px;
+            background-color: #fceaea;
+        }
+
+        .overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .overlay.show .overlay-content {
+            transform: scale(1);
+        }
+
+        .overlay.hide {
+            display: flex;
+            opacity: 0;
+            transition: opacity 0.5s ease, display 0s linear 0.5s;
+        }
+
+        .overlay.hide .overlay-content {
+            transform: scale(0.8);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: white;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: space-between;
+        }
+
+        .header-left img {
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        .nav {
+            display: flex;
+            padding-top: 15px;
+            gap: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-right button {
+            background-color: #ffcccc;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .header-right img {
+            height: 30px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        table, th, td {
+            border-bottom: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            font-family: 'Verdana', sans-serif;
+        }
+
+        th {
+            font-family: 'Reem Kufi', sans-serif;
+        }
+
+        .status-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .status-icons img {
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .status-icons button abbr img {
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .status-icons button {
+            border: none;
+            border-radius: 50%;
+        }
+
+        .header-right a {
+            padding: 15px;
+            padding-left: 40px;
+            padding-right: 40px;
+            background-color: #FFB6B6;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 19px;
+            color: black;
+            font-family: 'Verdana', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <a href="Dashboard_admin.html"><img src="Black Retro Car Repair Garage Logo_20240429_111254_0000.png" alt="Logo"></a>
+            <div class="nav">
+                <a href="#">Verification</a>
+                <a href="comingsoon.html">Report</a>
+            </div>
+        </div>
+        <div class="header-right">
+            <a href="comingsoon.html">Logout</a>
+            <img src="alarm.png" alt="Alert Icon">
+        </div>
+    </div>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>ID Number</th>
+            <th>Name</th>
+            <th>No. Handphone</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td style="font-family: 'Reem Kufi', sans-serif;">1</td>
+            <td>36710987983998</td>
+            <td style="font-family: 'Reem Kufi', sans-serif; font-size: 24px;">Helisma Putri</td>
+            <td>081241217103</td>
+            <td>helismajeketi@unila.com</td>
+            <td class="status-icons">
+                <button class="openOverlay" data-overlay="overlay1"><abbr title="Terima"><img src="accept.png" alt="Check Icon"></abbr></button>
+                <button class="openOverlay" data-overlay="overlay2"><abbr title="Tolak"><img src="remove.png" alt="Cross Icon"></abbr></button>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: 'Reem Kufi', sans-serif;">2</td>
+            <td>36718303458030</td>
+            <td style="font-family: 'Reem Kufi', sans-serif; font-size: 24px;">Adzana Ashel</td>
+            <td>089473948983</td>
+            <td>asheladz@unila.com</td>
+            <td class="status-icons">
+                <button class="openOverlay" data-overlay="overlay1"><abbr title="Terima"><img src="accept.png" alt="Check Icon"></abbr></button>
+                <button class="openOverlay" data-overlay="overlay2"><abbr title="Tolak"><img src="remove.png" alt="Cross Icon"></abbr></button>
+            </td>
+        </tr>
+    </table>
+
+    <div id="overlay1" class="overlay">
+        <div class="overlay-content">
+            <span class="close-button" data-overlay="overlay1"></span>
+            <h2>Setuju?</h2>
+            <p>Apakah anda ingin menyetujui verifikasi pengguna ini?</p>
+            <button class="submit-button" data-overlay="overlay1">Iya</button>
+            <button class="close-button" data-overlay="overlay1">Tidak</button>
+        </div>
+    </div>
+
+    <div id="overlay2" class="overlay">
+        <div class="overlay-content">
+            <span class="close-button" data-overlay="overlay2"></span>
+            <h2>Tolak</h2>
+            <p>Apakah anda ingin menolak verifikasi pengguna ini?</p>
+            <button class="submit-button" data-overlay="overlay2">Iya</button>
+            <button class="close-button" data-overlay="overlay2">Tidak</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to open a specific overlay
+        function openOverlay(overlayId) {
+            const overlay = document.getElementById(overlayId);
+            overlay.classList.remove('hide');
+            overlay.classList.add('show');
+        }
+
+        // Function to close a specific overlay
+        function closeOverlay(overlayId) {
+            const overlay = document.getElementById(overlayId);
+            overlay.classList.remove('show');
+            overlay.classList.add('hide');
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 500); // Match this time with the CSS transition duration
+        }
+
+        // Function to handle data submission
+        function submitData(overlayId) {
+            alert(`Data submitted from ${overlayId}`);
+            closeOverlay(overlayId);
+        }
+
+        // Add event listeners for opening overlays
+        document.querySelectorAll('.openOverlay').forEach(button => {
+            button.addEventListener('click', function() {
+                const overlayId = this.getAttribute('data-overlay');
+                const overlay = document.getElementById(overlayId);
+                overlay.style.display = 'flex';
+                setTimeout(() => openOverlay(overlayId), 10); // Slight delay to trigger CSS transition
+            });
+        });
+
+        // Add event listeners for closing overlays
+        document.querySelectorAll('.close-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const overlayId = this.getAttribute('data-overlay');
+                closeOverlay(overlayId);
+            });
+        });
+
+        // Add event listeners for submitting data
+        document.querySelectorAll('.submit-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const overlayId = this.getAttribute('data-overlay');
+                submitData(overlayId);
+            });
+        });
+
+        // Close overlay if user clicks outside the overlay content
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('overlay')) {
+                closeOverlay(event.target.id);
+            }
+        });
+    </script>
+</body>
+</html>
