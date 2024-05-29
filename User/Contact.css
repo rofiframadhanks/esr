@@ -1,0 +1,106 @@
+body {
+    background-color: #e8eaed;
+}
+
+li, a, button{
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 5px 10%;
+}
+
+.logo {
+    width: 5%;
+    height: auto;
+    cursor: pointer;
+}
+
+.nav{
+    list-style: none;
+}
+
+.nav li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav li a{
+    color: #424249;
+    transition: all 0.3s ease 0s;
+}
+
+.nav li a:hover{
+    color: #fe0505;
+}
+
+
+button{
+    padding: 9px 25px;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+    border: 2px solid #ff2c2c;
+    color: #ff2c2c;
+    background-color: #e8eaed;
+}
+
+.contact {
+    padding-top: 0%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10%;
+    
+
+    width: 80%;
+    height: 81vh;
+    background: url(media/maps.png);
+    background-position: 0%;
+    background-size: cover;
+}
+
+.gambar {
+    width: 200px;
+    height: 200px;
+}
+
+.pic {
+    width: 35%;
+    height: auto; 
+}
+
+.keterangan { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #202020;
+    text-align: left;
+    font-family: "Comic Sans MS";
+    font-size: 15px;
+    padding-top: 20px; 
+    padding-bottom: 0px;
+}
+
+.keterangan img {
+    width: 40px;
+    height: 40px;
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+.keterangan p {
+    margin: 0; 
+}

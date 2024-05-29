@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        li, a, button{
+            font-family: "Trebuchet MS", sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            color: #edf0f1;
+            text-decoration: none;
+        }
+
+        header{
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            padding: 5px 10%;
+        }
+
+        .logo {
+            width: 5%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .nav{
+            list-style: none;
+        }
+
+        .nav li{
+            display: inline-block;
+            padding: 0px 20px;
+        }
+
+        .nav li a{
+            color: #424249;
+            transition: all 0.3s ease 0s;
+        }
+
+        .nav li a:hover{
+            color: #fe0505;
+        }
+
+        button{
+            padding: 9px 25px;
+            background-color: #ff0000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+
+        button:hover{
+            border: 2px solid #ff2c2c;
+            color: #ff2c2c;
+            background-color: #e8eaed;
+        }
+
+        .chat-container {
+            background-color: #ffffff;
+            padding: 20px;
+            height: calc(100vh - 90px);
+            overflow-y: auto;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .message {
+            background-color: #eeeeee;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            display: inline-block;
+            max-width: 80%;
+        }
+        .message.user {
+            background-color: #bbdefb;
+            align-self: flex-end;
+        }
+        .message.admin {
+            background-color: #ff8a80;
+            align-self: flex-start;
+        }
+        .message-container {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .message-container.user {
+            justify-content: flex-end;
+        }
+        .message-container.admin {
+            justify-content: flex-start;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            background-color: #ffffff;
+            border-top: 1px solid #ddd;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+        .chat-input button {
+            background-color: #ff4b5c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background-color: #ff6b7c;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <header>
+            <img class="logo" src="Media/logo.jpg" alt="logo">
+            <nav>
+                <ul class="nav">
+                    <li><a href="https://www.detik.com/properti/tips-dan-panduan/d-7300234/7-tips-cegah-kebakaran-di-rumah-penting-dicatat">Tips</a></li>
+                    <li><a href="About.html">Status</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+    
+            <a class="cta" href="homepageuser.php">
+                <Button> Home </Button>
+            </a>
+        </header>
+    </section>
+    
+    <div class="chat-container" id="chat-container">
+        <div class="message-container admin">
+            <div class="message admin">
+                Hai!<br>
+                saya adalah Asisten virtual anda<br>
+                ada yang bisa saya bantu hari ini?
+                <div style="text-align: right; font-size: 12px; margin-top: 5px;">09:22</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Tulis pesan">
+        <button onclick="sendMessage()">Kirim</button>
+    </div>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8080');
+
+        ws.onopen = () => {
+            console.log('Terhubung ke server');
+        };
+
+        ws.onmessage = (event) => {
+            const message = event.data;
+            displayMessage(message, 'admin');
+        };
+
+        ws.onclose = () => {
+            console.log('Terputus dari server');
+        };
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value;
+            if (message) {
+                ws.send(message);
+                displayMessage(message, 'user');
+                input.value = '';
+            }
+        }
+
+        function displayMessage(message, sender) {
+            const chatContainer = document.getElementById('chat-container');
+            const messageContainer = document.createElement('div');
+            messageContainer.className = `message-container ${sender}`;
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${sender}`;
+            messageElement.textContent = message;
+            messageContainer.appendChild(messageElement);
+            chatContainer.appendChild(messageContainer);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    </script>
+</body>
+</html>
