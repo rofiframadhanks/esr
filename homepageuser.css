@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+}
+
+
+header .contact {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .contact a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.contact-phone {
+    background: #ffffff;
+    border-inline-color: rgb(255, 18, 18);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.contact-phone p {
+    color: rgb(255, 18, 18);
+}
+
+.contact-btn {
+    background: #f52a2a;
+    color: rgb(254, 254, 254);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.contact-btn p {
+    color: rgb(254, 254, 254);
+}
+
+li, a, button{
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 10px 10% ;
+}
+
+.logo {
+    width: 5%;
+    height: auto;
+    cursor: pointer;
+}
+
+.nav{
+    list-style: none;
+}
+
+.nav li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav li a{
+    color: #424249;
+    transition: all 0.3s ease 0s;
+}
+
+.nav li a:hover{
+    color: #fe0505;
+}
+
+
+button{
+    padding: 9px 25px;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+    border: 2px solid #ff2c2c;
+    color: #ff2c2c;
+    background-color: #e8eaed;
+}
+
+main {
+    padding: 2rem;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+}
+
+.hero h1 {
+    font-family: "Russo One", sans-serif;
+    margin-left: 10%;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.hero p {
+    margin-left: 10%;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.hero-images {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hero-images img {
+    height: 350px;
+    margin-left: 1rem;
+    margin-right: 20%;
+}
+
+
+.fire-tools {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.fire-tools .tool {
+    text-align: center;
+}
+
+.fire-tools .tool img {
+    height: 100px;
+}
+
+.about {
+    margin-top: 10%;
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.gambarpetugas {
+    flex: 1 1 45%;
+    margin-right: 0%;
+}
+
+.gambarpetugas img {
+    width: 60%;
+    height: auto;
+}
+
+.textpetugas {
+    margin-top: 5%;
+    flex: 1 1 50%;
+}
+
+.textpetugas h2 {
+    font-family: "Russo One", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-petugas,
+.about-stats {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+}
+
+.about-petugas {
+    margin-top: 5%;
+    margin-right: 0%;
+}
+
+.about-petugas ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.about-petugas li {
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+.about-stats {
+    margin-top: 6%;
+    text-align: center;
+}
+
+.about-stats img {
+    width: 100px;
+    height: auto;
+}
+
+.about-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.report-btn,
+.consult-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background-color: #f00;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.report-btn {
+    background-color: #f00;
+}
+
+.consult-btn {
+    background-color: #f00;
+}
+
+.news {
+    margin-top: 10%;
+    margin-bottom: 2rem;
+}
+
+.news-ourtips p{
+    font-family: 'Reem Kufi', sans-serif;
+    color: #f00;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    
+}
+
+.news h2 {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.news-items {
+    color: black;
+    display: flex;
+    justify-content: space-around;
+}
+
+.news-item {
+    color: black;
+    p{
+        color: black;
+        font-size: 10px;
+    }
+    text-align: center;
+}
+
+.news-item img {
+    height: 150px;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #f8f8f8;
+    padding: 1rem 2rem;
+
+    margin-top: 10%;
+    margin-bottom: 10%;
+
+    background-image: url(Media/map.png);
+    background-position: 0%;
+    background-size: cover;
+}
+
+footer .contact-info p, footer .contact-info a {
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+footer .footer-logo img {
+    height: 250px;
+}
+
