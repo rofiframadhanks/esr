@@ -1,0 +1,125 @@
+@import url('https://fonts.cdnfonts.com/css/verdana');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&display=swap');
+
+
+
+.buttonrow {
+    display: flex;
+    justify-content: center;
+}
+
+/* .button {
+
+} */
+
+.button a {
+    text-decoration: none;
+    font-size: 40px;
+    color: #FF0000;
+    font-family: 'Reem Kufi', sans-serif;
+    border: 1px solid;
+    border-color: #FF0000;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-left: 10px;
+}
+
+.maindash {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.maindash h1 {
+    font-family: 'Verdana', sans-serif;
+}
+
+.buttondash a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #FF0000;
+    font-family: 'Reem Kufi', sans-serif;
+    color: black;
+}
+
+.buttondash {
+    margin-left: 850px;
+    margin-right: 850px;
+    margin-top: 250px;
+    /* margin: 200px; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #FFB6B6;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.NavVerifLeft ul li{
+    margin: 0px 20px;
+    display: inline;
+    display: flex-end;
+    align-items: center;
+    justify-content: center;
+}
+
+.NavVerif {
+    width: 80%;
+    display: flex;
+    margin: auto;
+    padding: 20px 0px;
+    justify-content: space-between;
+
+}
+
+
+
+.NavVerif1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* .buttonNav {
+
+} */
+
+.buttonNav a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #FF0000;
+    font-family: 'Reem Kufi', sans-serif;
+}
+
+.buttonNav2 {
+    border: 1px solid;
+    border-color: #FF0000;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-left: 10px;
+}
+
+.buttonNav2 a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #FF0000;
+    font-family: 'Reem Kufi', sans-serif;
+}
+
+.KolomPendaftar {
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    margin-left: 200px;
+}
