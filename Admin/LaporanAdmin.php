@@ -1,4 +1,15 @@
-<?php include 'koneksi.php'; ?>
+<?php
+session_start();
+include 'koneksi.php';
+
+if (!isset($_SESSION['login_user']) || $_SESSION['role'] != 'admin') {
+    header("Location: ../login.php");
+    exit();
+}
+
+$result = $conn->query("SELECT * FROM reports");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,15 +162,15 @@
             <tbody>
                 <?php
                     $nomer = 1;
-                    $result = $conn->query("SELECT * FROM laporan Where status = 'Menunggu Diverifikasi'");
+                    $result = $conn->query("SELECT * FROM reports Where status = 'Menunggu Diverifikasi'");
 
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>
                             <td>".$nomer."</td>
-                            <td>".$row['nama']."</td>
-                            <td>".$row['lokasi']."</td>
-                            <td>".$row['kejadian']."</td>
-                            <td>".$row['nohp']."</td>
+                            <td>".$row['name']."</td>
+                            <td>".$row['location']."</td>
+                            <td>".$row['description']."</td>
+                            <td>".$row['phone']."</td>
                             <td><a href='DetailLaporanAdmin2.php?idlaporan=".$row['idlaporan']."'>Lihat Selengkapnya</a></td>
                         </tr>";
                         $nomer++;

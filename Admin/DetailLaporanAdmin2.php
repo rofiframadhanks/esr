@@ -4,7 +4,7 @@ include 'koneksi.php';
 // Memeriksa apakah idlaporan ada di URL
 if (isset($_GET['idlaporan'])) {
     $idlaporan = $_GET['idlaporan'];
-    $stmt = $conn->prepare("SELECT * FROM laporan WHERE idlaporan = ?");
+    $stmt = $conn->prepare("SELECT * FROM reports WHERE idlaporan = ?");
     $stmt->bind_param("i", $idlaporan);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -179,10 +179,10 @@ if (isset($_GET['idlaporan'])) {
             <tbody>
                 <tr>
                     <td><?php echo htmlspecialchars($row['idlaporan']); ?></td>
-                    <td><?php echo htmlspecialchars($row['nama']); ?></td>
-                    <td><?php echo htmlspecialchars($row['lokasi']); ?></td>
-                    <td><?php echo htmlspecialchars($row['kejadian']); ?></td>
-                    <td><?php echo htmlspecialchars($row['nohp']); ?></td>
+                    <td><?php echo htmlspecialchars($row['name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['location']); ?></td>
+                    <td><?php echo htmlspecialchars($row['description']); ?></td>
+                    <td><?php echo htmlspecialchars($row['phone']); ?></td>
                     <td>
                         <abbr title="Terima"><img src="accept.png" alt="Accept" onclick="showOverlay('accept', <?php echo $row['idlaporan']; ?>)"></abbr>
                         <abbr title="Tolak"><img src="remove.png" alt="Remove" onclick="showOverlay('remove', <?php echo $row['idlaporan']; ?>)"></abbr>
@@ -191,7 +191,7 @@ if (isset($_GET['idlaporan'])) {
             </tbody>
         </table>
         <br><br><br>
-        <center><img class="gambar" src="<?php echo htmlspecialchars($row['image']); ?>" alt=""></center>
+        <center><img class="gambar" src="<?php echo htmlspecialchars($row['evidence_path']); ?>" alt=""></center>
     </div>
 
     <!-- Overlay for confirmation -->
@@ -227,7 +227,7 @@ if (isset($_GET['idlaporan'])) {
         function confirmAction() {
             closeOverlay();
             if (actionType === 'accept') {
-                window.location.href = "accept_laporan.php?idlaporan=" + reportId;
+                window.location.href = "MemilihPetugas.php?idlaporan=" + reportId;
             } else if (actionType === 'remove') {
                 window.location.href = "reject_laporan.php?idlaporan=" + reportId;
             }
