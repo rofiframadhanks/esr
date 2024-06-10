@@ -1,3 +1,14 @@
+<?php
+session_start();
+include '../koneksi.php';
+
+$iduser = intval($_GET['iduser']);
+
+if (!isset($_SESSION['login_user']) || $_SESSION['role'] != 'user') {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +44,9 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+        }
+        .image-section img {
+            width: 100%;
         }
         .logo img {
             width: 100px;
@@ -98,10 +112,10 @@
         <div class="form-section">
             <a href="#" class="back-link">&lt; Back</a>
             <div class="logo">
-                <img src="Black Retro Car Repair Garage Logo.png" alt="Logo">
+                <img src="../Media/Black Retro Car Repair Garage Logo.png" alt="Logo">
             </div>
             <h2>Enter Data to Admin</h2>
-            <form action="submit_report.php" method="POST" enctype="multipart/form-data">
+            <form action="submit_report.php?iduser=<?php echo htmlspecialchars($iduser); ?>" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="your full name" required>
@@ -126,7 +140,7 @@
             </form>
         </div>
         <div class="image-section">
-            <img src="firefighter-99 (1) 1.png" alt="Firefighter Image">
+            <img src="../Media/firefighter-99 (1).png" alt="Firefighter Image">
         </div>
     </div>
 </body>

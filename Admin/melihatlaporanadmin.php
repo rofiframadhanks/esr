@@ -222,8 +222,9 @@ if ($result === FALSE) {
         <div class="header-section">
             <img src="Black Retro Car Repair Garage Logo.png" alt="Logo" class="logo">
             <nav>
-                <a href="#">Verification</a>
-                <a href="#">Report</a>
+                <a href="verifikasi_admin.php">Verification</a>
+                <a href="LaporanAdmin.php">Report</a>
+                <a href="Arsip.php">Report</a>
             </nav>
         </div>
         <button class="logout" onclick="logout()">Logout</button>
@@ -238,6 +239,7 @@ if ($result === FALSE) {
                     <th>Deskripsi</th>
                     <th>No HP</th>
                     <th>Aksi</th>
+                    <img src="" alt="">
                 </tr>
             </thead>
             <tbody>
@@ -254,6 +256,7 @@ if ($result === FALSE) {
                                 <img src="remove.png" alt="Reject" data-phone="' . htmlspecialchars($row["phone"], ENT_QUOTES, 'UTF-8') . '" onclick="handleAction(\'remove\', \'' . htmlspecialchars($row["phone"], ENT_QUOTES, 'UTF-8') . '\')">
                               </td>';
                         echo "</tr>";
+                        echo "<img src='.htmlspecialchars($row["evidence_path"], ENT_QUOTES, 'UTF-8')' alt='Evidence Photo'>"
                     }
                 } else {
                     echo "<tr><td colspan='5'>No data found</td></tr>";
@@ -292,7 +295,7 @@ if ($result === FALSE) {
     <script>
         function logout() {
             // Redirect user to start.html
-            window.location.href = "start.html";
+            window.location.href = "logout.php";
         }
 
         document.addEventListener("DOMContentLoaded", function() {

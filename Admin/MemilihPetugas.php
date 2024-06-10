@@ -1,12 +1,16 @@
 <?php
-include 'koneksi.php';
+include '../koneksi.php';
 if (isset($_GET['idlaporan'])) {
     $idlaporan = intval($_GET['idlaporan']);
     $stmt = $conn->prepare("SELECT * FROM reports WHERE idlaporan = ?");
     $stmt->bind_param("i", $idlaporan);
     $stmt->execute();
     $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
+    $report = $result->fetch_assoc();
+    if (!$report) {
+        echo "Laporan tidak ditemukan.";
+        exit();
+    }
 } else {
     echo "ID laporan tidak ditemukan.";
     exit();
@@ -166,9 +170,10 @@ if (isset($_GET['idlaporan'])) {
             <a href="Dashboard_admin.html"><img src="Black Retro Car Repair Garage Logo_20240429_111254_0000.png" alt=""></a>
             <a href="verifikasi_admin.php"><p>Verifikasi</p></a>
             <a href="LaporanAdmin.php"><p>Laporan</p></a>
+            <a href="Arsip.php"><p>Arsip</p></a>
         </div>
         <div class="RightHeader">
-            <a href="comingsoon.php"><p>Logout</p></a>
+            <a href="../logout.php"><p>Logout</p></a>
         </div>
     </nav>
     <div class="Container">
@@ -233,7 +238,7 @@ if (isset($_GET['idlaporan'])) {
                     event.preventDefault();
                     document.getElementById('overlay').style.display = 'block';
                     const petugasId = link.getAttribute('data-id');
-                    const idlaporan = <?php echo $idlaporan; ?>;
+                    const idlaporan = <?php echo json_encode($idlaporan); ?>;
                     
                     const xhr = new XMLHttpRequest();
                     xhr.open('POST', 'pending_request.php', true);

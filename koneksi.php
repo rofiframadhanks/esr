@@ -2,7 +2,7 @@
 $sarvername = "localhost";
 $email = "root";
 $password = "";
-$dbname = "esr";
+$dbname = "efrrr";
 
 $conn = new mysqli($sarvername, $email, $password, $dbname);
 

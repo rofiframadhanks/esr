@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch archived reports from the database
-$sql = "SELECT * FROM arsip"; // Mengambil data dari tabel arsip
+$sql = "SELECT * FROM reports"; // Mengambil data dari tabel arsip
 $result = $conn->query($sql);
 ?>
 
@@ -94,10 +94,10 @@ $result = $conn->query($sql);
     <div class="navbar">
         <div class="header-section">
             <a href="melihat laporan.html">
-                <img src="Black Retro Car Repair Garage Logo.png" alt="Logo" class="logo">
+                <img src="../media/Black Retro Car Repair Garage Logo.png" alt="Logo" class="logo">
             </a>
-            <a href="melihat laporan.html">Laporan</a>
-            <a href="arsip.php">Arsip</a>
+            <a href="melihat laporan.php">Laporan</a>
+            <a href="#">Arsip</a>
         </div>
         <button class="logout" onclick="logout()">Logout</button>
     </div>
@@ -112,6 +112,10 @@ $result = $conn->query($sql);
                     <th>Deskripsi</th>
                     <th>No HP</th>
                     <th>Foto</th>
+                    <th>No HP</th>
+                    <th>Status</th>
+                    <th>ID Petugas</th>
+                    <th>Nama Petugas</th>
                     <th>Tanggal</th>
                 </tr>
             </thead>
@@ -121,12 +125,16 @@ $result = $conn->query($sql);
                     // Output data of each row
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
+                        echo "<td>" . $row["idlaporan"] . "</td>";
                         echo "<td>" . $row["name"] . "</td>";
                         echo "<td>" . $row["location"] . "</td>";
                         echo "<td>" . $row["description"] . "</td>";
-                        echo "<td>" . $row["phone"] . "</td>";
                         echo "<td><img src='" . $row["evidence_path"] . "' alt='Report Image' class='report-image'></td>";
-                        echo "<td>" . $row["tanggal"] . "</td>"; // Assuming 'tanggal' is the column name for the archive date
+                        echo "<td>" . $row["phone"] . "</td>";
+                        echo "<td>" . $row["status"] . "</td>";
+                        echo "<td>" . $row["idpetugas"] . "</td>";
+                        echo "<td>" . $row["usernamepetugas"] . "</td>";
+                        echo "<td>" . $row["date"] . "</td>"; // Assuming 'tanggal' is the column name for the archive date
                         echo "</tr>";
                     }
                 } else {
@@ -140,7 +148,7 @@ $result = $conn->query($sql);
     <script>
         function logout() {
             // Redirect user to start.html
-            window.location.href = "start.html";
+            window.location.href = "../logout.php";
         }
     </script>
 </body>

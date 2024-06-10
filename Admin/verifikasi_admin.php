@@ -237,17 +237,51 @@
         .RightHeader {
             display: inline-flex;
         } 
+
+        .message-status-success {
+            font-family: 'Verdana', sans-serif;
+            font-size: 18px;
+            color: black;
+            /* margin: 10px; */
+            text-align: center;
+            background-color: #ffa3b2;
+            /* margin: 5%; */
+            margin-left: 30%;
+            margin-right: 30%;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 100px;
+            padding-right: 100px;
+            /* border-radius: 5% 5% 5% 5% ; */
+        }
+        .message-status-error {
+            font-family: 'Verdana', sans-serif;
+            font-size: 18px;
+            color: red;
+            /* margin: 10px; */
+            text-align: center;
+            background: rgb(253, 188, 201);
+            /* margin: 5%; */
+            margin-left: 30%;
+            margin-right: 30%;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 100px;
+            padding-right: 100px;
+            /* border-radius: 5% 5% 5% 5% ; */
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="LeftHeader">
             <a href="Dashboard_admin.html"><img src="Black Retro Car Repair Garage Logo_20240429_111254_0000.png" alt=""></a>
-            <a href="verifikasi_admin.html"><p>Verifikasi</p></a>
-            <a href="LaporanAdmin.html"><p>Laporan</p></a>
+            <a href="verifikasi_admin.php"><p>Verifikasi</p></a>
+            <a href="LaporanAdmin.php"><p>Laporan</p></a>
+            <a href="Arsip.php"><p>Arsip</p></a>
         </div>
         <div class="RightHeader">
-            <a href="comingsoon.html"><p>Logout</p></a>
+            <a href="../logout.php"><p>Logout</p></a>
             <img src="alarm.png" alt="Alarm Icon">
         </div>
     </nav>
@@ -269,8 +303,8 @@
                 echo "<tr>
                     <td>".$row_number."</td> 
                     <td>".$row['id']."</td>
-                    <td>".$row['nama']."</td>
-                    <td>".$row['nohp']."</td>
+                    <td>".$row['username']."</td>
+                    <td>".$row['phone']."</td>
                     <td>".$row['email']."</td>
                     <td class='status-icons'>
                         <abbr title='Terima'><button class='openOverlay' data-overlay='overlay1'><img src='accept.png' alt='Check Icon'></button></abbr>
@@ -314,11 +348,11 @@
         if (isset($_GET['status'])) {
             $status = $_GET['status'];
             if ($status == 'success') {
-                echo "<div class='message success'>Operation successful!</div>";
+                echo "<div class='message-status-success'>User berhasil Diverifikasi!</div>";
             } elseif ($status == 'error') {
-                echo "<div class='message error'>An error occurred. Please try again.</div>";
+                echo "<div class='message-status-error'>An error occurred. Please try again.</div>";
             } elseif ($status == 'error_user_not_found') {
-                echo "<div class='message error'>User not found.</div>";
+                echo "<div class='message-status-error'>User not found.</div>";
             }
         }
     ?>

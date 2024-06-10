@@ -5,7 +5,7 @@ $username = "root"; // Ganti dengan username database Anda
 $password = ""; // Ganti dengan password database Anda
 $dbname = "efrrr"; // Ganti dengan nama database Anda
 
-// Membuat koneksi
+// Membuat koneksi  
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Memeriksa koneksi
@@ -13,8 +13,12 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
+$idpetugas = intval($_GET['idpetugas']);
+$idlaporan = intval($_GET['idlaporan']);
+
+
 // Fetch data from the database
-$sql = "SELECT * FROM reports";
+$sql = "SELECT * FROM reports where status = 'Diterima' and idpetugas = $idpetugas and idlaporan = $idlaporan";
 $result = $conn->query($sql);
 
 ?>
@@ -186,7 +190,7 @@ $result = $conn->query($sql);
     <div class="navbar">
         <div class="header-section">
             <a href="melihat laporan.html">
-                <img src="Black Retro Car Repair Garage Logo.png" alt="Logo" class="logo">
+                <img src="../media/Black Retro Car Repair Garage Logo.png" alt="Logo" class="logo">
             </a>
             <a href="#">Laporan</a>
             <a href="arsip.php">Arsip</a>
@@ -222,7 +226,7 @@ $result = $conn->query($sql);
                         echo "<td>";
                         echo "<div class='action-buttons'>";
                         echo "<button class='process' onclick='showTindakanPopup()'>Di Proses</button>";
-                        echo "<button class='select' onclick='showPopup()'>Selesai</button>";
+                        echo "<button class='select' onclick='showPopup($idlaporan)'>Selesai</button>";
                         echo "</div>";
                         echo "</td>";
                         echo "</tr>";
@@ -247,7 +251,7 @@ $result = $conn->query($sql);
     <script>
         function logout() {
     // Redirect user to start.html
-    window.location.href = "start.html";
+    window.location.href = "../logout.php";
 }
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -257,7 +261,7 @@ $result = $conn->query($sql);
             document.getElementById('overlay').style.display = 'none';
         });
 
-        function showPopup() {
+        function showPopup(idlaporan) {
             // Show popup and overlay
             document.getElementById('popup').style.display = 'flex';
             document.getElementById('overlay').style.display = 'block';
@@ -281,9 +285,9 @@ $result = $conn->query($sql);
             document.getElementById('overlay').style.display = 'none';
         }
 
-        function handleYes() {
+        function handleYes(idlaporan) {
             // Redirect user to appropriate page
-            window.location.href = "arsip.php";
+            window.location.href =  "done_report.php?idlaporan=" + idlaporan + "&idpetugas=<?php echo $idpetugas; ?>";
 
             // Hide tindakan popup after redirecting
             hideTindakanPopup();

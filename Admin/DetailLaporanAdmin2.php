@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include '../koneksi.php';
 
 // Memeriksa apakah idlaporan ada di URL
 if (isset($_GET['idlaporan'])) {

@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include '../koneksi.php';
 
 if (isset($_POST['idlaporan']) && isset($_POST['idpetugas'])) {
     $idlaporan = intval($_POST['idlaporan']);
@@ -9,7 +9,7 @@ if (isset($_POST['idlaporan']) && isset($_POST['idpetugas'])) {
     $stmt->bind_param("ii", $idpetugas, $idlaporan);
 
     if ($stmt->execute()) {
-        echo json_encode(["status" => "success", "message" => "Laporan berhasil diterima."]);
+        echo json_encode(["status" => "success", "message" => "Laporan berhasil dikirim."]);
     } else {
         echo json_encode(["status" => "error", "message" => "Gagal mengupdate laporan."]);
     }

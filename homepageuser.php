@@ -1,3 +1,14 @@
+<?php
+session_start();
+include 'koneksi.php';
+
+$iduser = intval($_GET['iduser']);
+
+if (!isset($_SESSION['login_user']) || $_SESSION['role'] != 'user') {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +23,15 @@
             <nav>
                 <ul class="nav">
                     <li><a href="https://www.detik.com/properti/tips-dan-panduan/d-7300234/7-tips-cegah-kebakaran-di-rumah-penting-dicatat">Tips</a></li>
-                    <li><a href="About.html">Status</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="user/statuslaporan.php?iduser=<?php echo htmlspecialchars($iduser); ?>">Status</a></li>
+                    <li><a href="user/faq.html">FAQ</a></li>
                 </ul>
             </nav>
 
             <div class="contact">
-                <a href="chauser.html" class="contact-message"><img src="Media/message.png" alt="Pesan"></a>
+                <a href="user/chatuser.html" class="contact-message"><img src="Media/message.png" alt="Pesan"></a>
                 <a href="tel:+62xxxxxxxx" class="contact-phone"><p>+62 xxxxxxxx</p></a>
-                <a class="cta" href="Contact.html">
+                <a class="cta" href="user/Contact.html">
                     <Button> Contact</Button>
                 </a>
             </div>
@@ -72,8 +83,8 @@
                 <p>Always on Time Arrival</p>
             </div>
             <div class="about-actions">
-                <a href="#" class="report-btn">Make A Report</a>
-                <a href="chatuser.html" class="consult-btn">Consult Now</a>
+                <a href="user/pelaporankepadaadmin.php?iduser=<?php echo htmlspecialchars($iduser); ?>" class="report-btn">Make A Report</a>
+                <a href="user/chatuser.html" class="consult-btn">Consult Now</a>
             </div>
         </div>
     </section>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .logout {
+            background-color: #ff6666;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+        }
+        .container {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #ff7f00;
+            color: white;
+            font-size: 18px;
+        }
+        td {
+            font-size: 16px;
+        }
+        .report-image {
+            width: 100px;
+            height: auto;
+        }
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .header-section {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="header-section">
+            <img src="Black Retro Car Repair Garage Logo.png" alt="Logo" class="logo">
+            <a href="datakosong.html">Laporan</a>
+            <a href="#">Arsip</a>
+        </div>
+        <button class="logout" onclick="logout()">Logout</button>
+
+    </div>
+
+    <div class="container">
+        <h2>Arsip Petugas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Lokasi</th>
+                    <th>Deskripsi</th>
+                    <th>No HP</th>
+                    <th>Foto</th>
+                    <th>Tanggal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #fdebd0;">
+                    <td>Leo</td>
+                    <td>jln bumi manti nomor 20</td>
+                    <td>Kebakaran Rumah</td>
+                    <td>085214334141</td>
+                    <td><img src="kebakaran.jpg" alt="Foto Kebakaran" class="report-image"></td>
+                    <td>Jumat 17-05-2024</td>
+                </tr>
+                <tr style="background-color: #f6c4a9;">
+                    <td>ucup</td>
+                    <td>jln bumi manti nomor 10</td>
+                    <td>Kebakaran Kos</td>
+                    <td>085214324191</td>
+                    <td><img src="kebakaran-rumah-kos-nhyoip-prv.jpg" alt="Foto Kebakaran Kos" class="report-image"></td>
+                    <td>Sabtu 18-05-2024</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function logout() {
+    // Redirect user to start.html
+    window.location.href = "start.html";
+}
+
+    </script>
+</body>
+</html>

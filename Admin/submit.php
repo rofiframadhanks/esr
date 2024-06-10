@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($user_data) {
                 // Insert the user data into the main users table
-                $stmt = $conn->prepare("INSERT INTO users (id, nama, nohp, email) VALUES (?, ?, ?, ?)");
-                $stmt->bind_param("ssss", $user_data['id'], $user_data['nama'], $user_data['nohp'], $user_data['email']);
+                $stmt = $conn->prepare("INSERT INTO users (id, username, phone, email) VALUES (?, ?, ?, ?)");
+                $stmt->bind_param("ssss", $user_data['id'], $user_data['username'], $user_data['phone'], $user_data['email']);
                 $stmt->execute();
                 $stmt->close();
 

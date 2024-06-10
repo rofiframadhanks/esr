@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Buat koneksi ke database
 $servername = "localhost"; // Ganti dengan hostname Anda
 $username = "root"; // Ganti dengan username database Anda
@@ -13,10 +14,22 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Fetch data from the database
-$sql = "SELECT * FROM reports";
-$result = $conn->query($sql);
+$idpetugas = intval($_GET['idpetugas']);
+$status = 'Pending';
 
+if (!isset($_SESSION['login_user']) || $_SESSION['role'] != 'petugas') {
+    header("Location: ../login.php");
+    exit();
+}
+
+$stmt = $conn->prepare("SELECT * FROM reports WHERE idpetugas = ? AND status = ?");
+$stmt->bind_param("is", $idpetugas, $status);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if (!$result) {
+    die("Query failed: " . $conn->error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -185,12 +198,11 @@ $result = $conn->query($sql);
 <body>
     <div class="navbar">
         <div class="header-section">
-            <img src="Black Retro Car Repair Garage Logo.png" alt="Logo" class="logo">
+            <img src="../Media/Black Retro Car Repair Garage Logo.png" alt="Logo" class="logo">
             <a href="#">Laporan</a>
-            <a href="arsip.html">Arsip</a>
+            <a href="arsip.php">Arsip</a>
         </div>
         <button class="logout" onclick="logout()">Logout</button>
-
     </div>
 
     <div class="container">
@@ -198,6 +210,7 @@ $result = $conn->query($sql);
         <table>
             <thead>
                 <tr>
+                    <th>ID Laporan</th>
                     <th>Nama</th>
                     <th>Lokasi</th>
                     <th>Deskripsi</th>
@@ -211,7 +224,9 @@ $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // Output data of each row
                     while ($row = $result->fetch_assoc()) {
+                        $idlaporan = $row["idlaporan"]; // Store idlaporan for use in JS function
                         echo "<tr>";
+                        echo "<td>" . $idlaporan . "</td>";
                         echo "<td>" . $row["name"] . "</td>";
                         echo "<td>" . $row["location"] . "</td>";
                         echo "<td>" . $row["description"] . "</td>";
@@ -219,14 +234,14 @@ $result = $conn->query($sql);
                         echo "<td><img src='" . $row["evidence_path"] . "' alt='Report Image' class='report-image'></td>";
                         echo "<td>";
                         echo "<div class='action-buttons'>";
-                        echo "<button class='process' onclick='showTindakanPopup()'>Lakukan Tindakan</button>";
+                        echo "<button class='process' onclick='showTindakanPopup($idlaporan)'>Lakukan Tindakan</button>";
                         echo "<button class='select' onclick='showPopup()'>Selesai</button>";
                         echo "</div>";
                         echo "</td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='6'>Tidak ada data yang ditemukan</td></tr>";
+                    echo "<tr><td colspan='7'>Tidak ada data yang ditemukan</td></tr>";
                 }
                 ?>
             </tbody>
@@ -247,16 +262,16 @@ $result = $conn->query($sql);
             <div class="icon">❓</div>
             <h2>Konfirmasi Tindakan</h2>
             <p>Apakah anda akan menuju lokasi?</p>
-            <button onclick="handleYes()">Ya</button>
+            <button id="handleYesButton" onclick="">Ya</button>
             <button onclick="hideTindakanPopup()">Batal</button>
         </div>
     </div>
 
     <script>
         function logout() {
-    // Redirect user to start.html
-    window.location.href = "start.html";
-}
+            // Redirect user to start.html
+            window.location.href = "../logout.php";
+        }
 
         document.addEventListener("DOMContentLoaded", function() {
             // Initially hide popups and overlay
@@ -277,10 +292,11 @@ $result = $conn->query($sql);
             document.getElementById('overlay').style.display = 'none';
         }
 
-        function showTindakanPopup() {
+        function showTindakanPopup(idlaporan) {
             // Show tindakan popup and overlay
             document.getElementById('popup-tindakan').style.display = 'flex';
             document.getElementById('overlay').style.display = 'block';
+            document.getElementById('handleYesButton').setAttribute('onclick', 'handleYes(' + idlaporan + ')');
         }
 
         function hideTindakanPopup() {
@@ -289,10 +305,9 @@ $result = $conn->query($sql);
             document.getElementById('overlay').style.display = 'none';
         }
 
-        function handleYes() {
+        function handleYes(idlaporan) {
             // Redirect user to appropriate page
-            window.location.href = "melihat laporan diproses.php";
-
+            window.location.href = "accept_report.php?idpetugas=<?php echo $idpetugas;?>&idlaporan=" + idlaporan;
             // Hide tindakan popup after redirecting
             hideTindakanPopup();
         }

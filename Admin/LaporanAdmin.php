@@ -1,13 +1,13 @@
 <?php
 session_start();
-include 'koneksi.php';
+include '../koneksi.php';
 
 if (!isset($_SESSION['login_user']) || $_SESSION['role'] != 'admin') {
     header("Location: ../login.php");
     exit();
 }
 
-$result = $conn->query("SELECT * FROM reports");
+$result = $conn->query("SELECT * FROM reports ORDER BY idlaporan DESC");
 
 ?>
 <!DOCTYPE html>
@@ -139,9 +139,10 @@ $result = $conn->query("SELECT * FROM reports");
             <a href="Dashboard_admin.html"><img src="Black Retro Car Repair Garage Logo_20240429_111254_0000.png" alt=""></a>
             <a href="verifikasi_admin.php"><p>Verifikasi</p></a>
             <a href="LaporanAdmin.php"><p>Laporan</p></a>
+            <a href="Arsip.php"><p>Arsip</p></a>
         </div>
         <div class="RightHeader">
-            <a href="comingsoon.html"><p>Logout</p></a>
+            <a href="../logout.php"><p>Logout</p></a>
             <!-- <img src="alarm.png" alt="Alarm Icon"> -->
         </div>
     </nav>
@@ -152,6 +153,7 @@ $result = $conn->query("SELECT * FROM reports");
             <thead>
                 <tr>
                     <th>No.</th>
+                    <th>ID Laporan</th>
                     <th>Nama</th>
                     <th>Lokasi</th>
                     <th>Kejadian</th>
@@ -167,6 +169,7 @@ $result = $conn->query("SELECT * FROM reports");
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>
                             <td>".$nomer."</td>
+                            <td>".$row['idlaporan']."</td>
                             <td>".$row['name']."</td>
                             <td>".$row['location']."</td>
                             <td>".$row['description']."</td>

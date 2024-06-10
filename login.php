@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('Koneksi.php');
+include('koneksi.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -12,16 +12,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
+            $id = $row['id'];
             $_SESSION['login_user'] = $email;
             $_SESSION['role'] = $row['role'];
             
             // Redirect based on user role
             if ($row['role'] == 'admin') {
-                header("Location: homepageadmin.php"); // Redirect to admin dashboard
+                header("Location: admin/dashboard_admin.html"); // Redirect to admin dashboard
             } else if ($row['role'] == 'user') {
-                header("Location: homepageuser.php"); // Redirect to petugas homepage
+                header("Location: homepageuser.php?iduser=$id"); // Redirect to petugas homepage
             } else {
-                header("Location: laporanpetugas.html"); // Redirect to user homepage
+                header("Location: petugas/melihat%20laporan.php?idpetugas=$id"); // Redirect to user homepage
             }
             exit();
         } else {
@@ -32,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -180,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </form>
         <div class="signup-link">
-            Don't have an account yet? <a href="signup.html">Sign Up</a>
+            Don't have an account yet? <a href="signup.php">Sign Up</a>
         </div>
     </div>
     <div class="right-side">
