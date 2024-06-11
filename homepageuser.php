@@ -31,7 +31,7 @@ if (!isset($_SESSION['login_user']) || $_SESSION['role'] != 'user') {
             <div class="contact">
                 <a href="user/chatuser.html" class="contact-message"><img src="Media/message.png" alt="Pesan"></a>
                 <a href="tel:+62xxxxxxxx" class="contact-phone"><p>+62 xxxxxxxx</p></a>
-                <a class="cta" href="user/Contact.html">
+                <a class="cta" href="user/Contact.php?iduser=<?php echo htmlspecialchars($iduser); ?>">
                     <Button> Contact</Button>
                 </a>
             </div>
