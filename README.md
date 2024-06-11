@@ -1,0 +1,1 @@
+Projek akhir untuk mata kuliah Analisis dan Desain Sistem Informasi, Kami membuat Sistem informasi berupa pelaporan kepada pihak emergency unit (yang kali ini hanya Pemadam Kebakaran) yang manajemen laporan dan penggunanya diatur oleh Admin
