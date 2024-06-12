@@ -202,10 +202,10 @@ $result = $conn->query($sql);
         <table>
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nama</th>
                     <th>Lokasi</th>
                     <th>Deskripsi</th>
-                    <th>No HP</th>
                     <th>Foto</th>
                     <th>No HP</th>
                     <th>Status</th>

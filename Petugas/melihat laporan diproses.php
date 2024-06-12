@@ -250,9 +250,9 @@ $result = $conn->query($sql);
 
     <script>
         function logout() {
-    // Redirect user to start.html
-    window.location.href = "../logout.php";
-}
+            // Redirect user to start.html
+            window.location.href = "../logout.php";
+        }
 
         document.addEventListener("DOMContentLoaded", function() {
             // Initially hide popups and overlay
@@ -265,6 +265,9 @@ $result = $conn->query($sql);
             // Show popup and overlay
             document.getElementById('popup').style.display = 'flex';
             document.getElementById('overlay').style.display = 'block';
+
+            // Attach the idlaporan to the yes button
+            document.querySelector('.popup-content button:first-of-type').setAttribute('onclick', 'handleYes(' + idlaporan + ')');
         }
 
         function hidePopup() {
@@ -287,10 +290,10 @@ $result = $conn->query($sql);
 
         function handleYes(idlaporan) {
             // Redirect user to appropriate page
-            window.location.href =  "done_report.php?idlaporan=" + idlaporan + "&idpetugas=<?php echo $idpetugas; ?>";
+            window.location.href =  "done_report.php?idlaporan=" + <?php echo $idlaporan; ?> + "&idpetugas=<?php echo $idpetugas; ?>";
 
             // Hide tindakan popup after redirecting
-            hideTindakanPopup();
+            hidePopup();
         }
     </script>
 </body>
